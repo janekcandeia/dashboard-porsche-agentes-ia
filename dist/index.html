@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashboard interativa de vendas Porsche criada com Excel, IA e JavaScript.">
+  <title>Dashboard Porsche | Agentes de IA</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="crest">P</span><div><strong>PORSCHE</strong><small>SALES INTELLIGENCE</small></div></div>
+    <div class="project-tag">EXCEL + AGENTES DE IA</div>
+  </header>
+
+  <main>
+    <section class="heading">
+      <div><p class="eyebrow">VISÃO EXECUTIVA</p><h1>Performance de vendas</h1><p>Explore os resultados comerciais com filtros atualizados em tempo real.</p></div>
+      <button id="resetFilters" type="button">Limpar filtros</button>
+    </section>
+
+    <section class="filters" aria-label="Filtros da dashboard">
+      <label>Modelo<select id="modelFilter"><option value="">Todos os modelos</option></select></label>
+      <label>Ano<select id="yearFilter"><option value="">Todos os anos</option></select></label>
+      <label>Estado<select id="stateFilter"><option value="">Todos os estados</option></select></label>
+      <label>Pagamento<select id="paymentFilter"><option value="">Todas as formas</option></select></label>
+      <label>Status<select id="statusFilter"><option value="">Todos os status</option></select></label>
+    </section>
+
+    <section class="kpis" aria-label="Indicadores principais">
+      <article><span>Receita total</span><strong id="totalRevenue">—</strong><small id="revenueContext">vendas filtradas</small></article>
+      <article><span>Veículos vendidos</span><strong id="totalSales">—</strong><small>registros encontrados</small></article>
+      <article><span>Ticket médio</span><strong id="avgTicket">—</strong><small>valor médio por veículo</small></article>
+      <article><span>Taxa de entrega</span><strong id="deliveryRate">—</strong><small>pedidos entregues</small></article>
+    </section>
+
+    <section class="charts-grid">
+      <article class="panel wide"><div class="panel-title"><div><span>EVOLUÇÃO</span><h2>Receita por mês</h2></div></div><canvas id="monthlyChart" role="img" aria-label="Gráfico de receita mensal"></canvas></article>
+      <article class="panel"><div class="panel-title"><div><span>MIX DE PRODUTOS</span><h2>Top 6 modelos</h2></div></div><canvas id="modelChart" role="img" aria-label="Gráfico dos modelos com maior receita"></canvas></article>
+      <article class="panel"><div class="panel-title"><div><span>OPERAÇÃO</span><h2>Status das entregas</h2></div></div><canvas id="statusChart" role="img" aria-label="Gráfico de status das entregas"></canvas></article>
+    </section>
+
+    <section class="panel table-panel">
+      <div class="panel-title"><div><span>DETALHAMENTO</span><h2>Vendas filtradas</h2></div><small id="tableCount"></small></div>
+      <div class="table-wrap"><table><thead><tr><th>Data</th><th>Modelo</th><th>Ano</th><th>Estado</th><th>Pagamento</th><th>Status</th><th>Valor</th></tr></thead><tbody id="salesTable"></tbody></table></div>
+      <p id="emptyState" class="empty" hidden>Nenhuma venda corresponde aos filtros selecionados.</p>
+    </section>
+  </main>
+
+  <footer>Projeto educacional DIO • Dados tratados com apoio de agentes de Inteligência Artificial</footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>
